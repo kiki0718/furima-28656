@@ -26,63 +26,60 @@ Things you may want to cover:
 #テーブル設計
 
 ## users テーブル
-| Column     | Type   | Options                  |
-| ---------- | ------ | ------------------------ |
-| nickname   | string | null: false, unique:true |
-| mail       | string | null: false              |
-| password   | string | null: false              |
-| first_name | string | null: false              |
-| last_name  | string | null: false              |
-| nickname   | string | null: false              |
+| Column              | Type   | Options                  |
+| ------------------- | ------ | ------------------------ |
+| nickname            | string | null: false, unique:true |
+| email               | string | null: false              |
+| encrypted_password  | string | null: false              |
+| first_name          | string | null: false              |
+| last_name           | string | null: false              |
+| first_name_furigana | string | null: false              |
+| last_name_furigana  | string | null: false              |
+| nickname            | string | null: false              |
 
 ### Association
 - has_many :items
 - has_many :purchse_records
-- has_many :adresses
 
 ## items テーブル
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| name             | string     | null: false                    |
-| seller           | references | null: false, foreign_key: true |
-| price            | string     | null: false                    |
-| photo            | string     | null: false                    |
-| category         | string     | null: false                    |
-| status           | string     | null: false                    |
-| delivery_fee     | string     | null: false                    |
-| ship_from        | string     | null: false                    |
-| ship_day         | string     | null: false                    |
-| sales_commission | string     | null: false                    |
-| sales_profit     | string     | null: false                    |
-| description      | string     | null: false                    |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| name                | string     | null: false                    |
+| user                | references | null: false, foreign_key: true |
+| price               | integer    | null: false                    |
+| category_id         | integer    | null: false                    |
+| status_id           | integer    | null: false                    |
+| delivery_fee_id     | integer    | null: false                    |
+| ship_from_id        | integer    | null: false                    |
+| ship_day_id         | integer    | null: false                    |
+| description         | string     | null: false                    |
 
 ### Association
-- belong_to :users
+- belongs_to :user
 - has_one :purchse_records
-- has_one :adresses
 
 ## purchse_records テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| buyer            | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
-| purchse_date     | string     | null: false                    |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
+- has_many :adresses
 
 ## adresses テーブル
-| Column | Type | Options |
-| ------ | ---- | ------- |
-| buyer            | references | null: false, foreign_key: true |
-| postal_code      | string     | null: false                    |  
-| prefecture       | string     | null: false                    |
-| municipatities   | string     | null: false                    |  
-| building_name    | string     |                                |
-| house_number     | string     | null: false                    |
-| phone_number     | string     | null: false                    |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| user           | references | null: false, foreign_key: true |
+| postal_code    | string     | null: false                    |  
+| prefecture_id  | integer    | null: false                    |
+| municipatities | string     | null: false                    |  
+| building_name  | string     |                                |
+| house_number   | string     | null: false                    |
+| phone_number   | string     | null: false                    |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
