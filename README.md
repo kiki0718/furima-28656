@@ -35,7 +35,7 @@ Things you may want to cover:
 | last_name           | string  | null: false              |
 | first_name_furigana | string  | null: false              |
 | last_name_furigana  | string  | null: false              |
-| birthday            | integer | null: false              |
+| birthday            | string  | null: false              |
 
 ### Association
 - has_many :items
