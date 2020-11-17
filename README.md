@@ -50,9 +50,9 @@ Things you may want to cover:
 | category_id         | integer    | null: false                    |
 | status_id           | integer    | null: false                    |
 | delivery_fee_id     | integer    | null: false                    |
-| ship_from_id        | integer    | null: false                    |
+| predecture_id       | integer    | null: false                    |
 | ship_day_id         | integer    | null: false                    |
-| description         | string     | null: false                    |
+| description         | text       | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -74,7 +74,7 @@ Things you may want to cover:
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
 | postal_code    | string     | null: false                    |  
-| prefecture_id  | integer    | null: false                    |
+| prefecture_id  | integer    | null: false, foreign_key: true |
 | municipatities | string     | null: false                    |  
 | building_name  | string     |                                |
 | house_number   | string     | null: false                    |
