@@ -26,16 +26,16 @@ Things you may want to cover:
 #テーブル設計
 
 ## users テーブル
-| Column              | Type   | Options                  |
-| ------------------- | ------ | ------------------------ |
-| nickname            | string | null: false, unique:true |
-| email               | string | null: false              |
-| encrypted_password  | string | null: false              |
-| first_name          | string | null: false              |
-| last_name           | string | null: false              |
-| first_name_furigana | string | null: false              |
-| last_name_furigana  | string | null: false              |
-| nickname            | string | null: false              |
+| Column              | Type    | Options                  |
+| ------------------- | ------- | ------------------------ |
+| nickname            | string  | null: false, unique:true |
+| email               | string  | null: false              |
+| encrypted_password  | string  | null: false              |
+| first_name          | string  | null: false              |
+| last_name           | string  | null: false              |
+| first_name_furigana | string  | null: false              |
+| last_name_furigana  | string  | null: false              |
+| birthday            | integer | null: false              |
 
 ### Association
 - has_many :items
@@ -67,7 +67,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_many :adresses
+- has_one :adresses
 
 ## adresses テーブル
 | Column         | Type       | Options                        |
@@ -80,6 +80,5 @@ Things you may want to cover:
 | house_number   | string     | null: false                    |
 | phone_number   | string     | null: false                    |
 
-### Association
-- belongs_to :user
-- belongs_to :item
+## Association
+- belongs_to :purchse_record
