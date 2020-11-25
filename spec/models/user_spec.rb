@@ -21,6 +21,10 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = 'abc123'
         expect(@user).to be_valid
       end
+      it 'emailは＠がある場合登録できる' do
+        @user.email = 'aaaa@g'
+        expect(@user).to be_valid
+      end
       it 'last_nameが全角(漢字、ひらがな、カタカナ)だと登録できる' do
         @user.last_name = '亞あア'
         expect(@user).to be_valid
@@ -43,6 +47,11 @@ RSpec.describe User, type: :model do
         @user.nickname = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
+      end
+      it 'emailは＠がない場合登録できない' do
+        @user.email = 'aaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
       end
       it 'emailが空だと登録できない' do
         @user.email = nil
