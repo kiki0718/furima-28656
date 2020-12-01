@@ -14,7 +14,7 @@ class Selector < ActiveHash::Base
   ]
   
   include ActiveHash::Associations
-  has_many :articles
+  has_many :items
 
 end
 
@@ -29,7 +29,7 @@ class Status < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :articles
+  has_many :items
 
 end
 
@@ -41,7 +41,7 @@ class DeliveryFee < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :articles
+  has_many :items
 
 end
 
@@ -66,7 +66,7 @@ class Prefecture < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :articles
+  has_many :items
 
 end
 
@@ -78,6 +78,6 @@ class ShipDay < ActiveHash::Base
     { id: 4, name: '4~7日で発送' }
   ]
   include ActiveHash::Associations
-  has_many :articles
+  has_many :items
 
 end

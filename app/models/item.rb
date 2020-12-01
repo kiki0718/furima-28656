@@ -1,10 +1,11 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  bolongs_to :selector
+  belongs_to :selector
   belongs_to :user
   has_one_attached :image
   
-  validates :name, :category_id, :status_id, :delivery_fee,
-            :prefecture_id, :ship_day_id, :description, :image, presence: true
-  validates :price format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/ }, inclusion: {in: 300..9999999}, presence: true
+  validates :image, :name, :description, presence: true
+  validates :category_id, :status_id, :delivery_fee_id, :prefecture_id, :ship_day_id, numericality: { other_than: 1 }
+  validates :price, presence: true
+  validates :price, numericality: { message: '半角数字で入力してださい。' }, inclusion: {in: 300..9999999, message: '価格は300円〜9999999円の範囲で入力してください。'}, allow_blank: true
 end
