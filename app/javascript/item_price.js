@@ -1,13 +1,12 @@
-function item_price(){
-
+function price() {
   const priceInput = document.getElementById("item-price");
   const addTaxDom = document.getElementById("add-tax-price");
   const addProfit = document.getElementById('profit');
-  
+
   priceInput.addEventListener("input", () => {
-    const inputValue = priceInput.value;  
-    addTaxDom.innerHTML = Math.floor(priceInput.value * 0.1);
-    addProfit.innerHTML = priceInput.value - addTaxDom.innerHTML;
+    const inputValue = priceInput.value;
+    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+    addProfit.innerHTML = inputValue - addTaxDom.innerHTML;
   })
 }
-window.addEventListener("load", item_price);
+setInterval(price, 1000)
