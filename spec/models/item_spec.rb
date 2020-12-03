@@ -54,7 +54,7 @@ RSpec.describe Item, type: :model do
       it 'ship_day_idが1だと登録できない' do
         @item.ship_day_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship day must be other than 1")
+        expect(@item.errors.full_messages).to include('Ship day must be other than 1')
       end
       it 'priceが空だと登録できない' do
         @item.price = nil
