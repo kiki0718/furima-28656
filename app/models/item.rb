@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :selector
-  belongs_to :delivery_fee 
+  belongs_to :delivery_fee
   belongs_to :status
   belongs_to :prefecture
   belongs_to :ship_day
