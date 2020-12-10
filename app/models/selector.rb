@@ -1,4 +1,6 @@
 class Selector < ActiveHash::Base
+end
+class Category < ActiveHash::Base
   self.data = [
     { id: 1, name: 'ーーー' },
     { id: 2, name: 'レディース' },
