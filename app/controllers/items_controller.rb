@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :login_check, only: [:destroy]
+  before_action :item_get, only: [:show, :destroy]
 
   def new
     @item = Item.new
   end
   
   def show
-    @item = Item.find(params[:id])
   end
 
   def index
@@ -24,8 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     redirect_to root_path
   end
 
@@ -38,5 +37,9 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to root_path
     end
+  end
+
+  def item_get
+    @item = Item.find(params[:id])
   end
 end
