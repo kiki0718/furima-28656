@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     if current_user.id == @item.user.id
       @item.destroy
     end
-      redirect_to root_path
+    redirect_to root_path
   end
 
   def edit
