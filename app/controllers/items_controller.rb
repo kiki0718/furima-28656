@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_user!, only: [:destroy]
-  before_action :item_get, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:destroy, :edit]
+  before_action :item_get, only: [:show, :destroy, :edit]
 
   def new
     @item = Item.new
@@ -28,6 +28,9 @@ class ItemsController < ApplicationController
       @item.destroy
     end
       redirect_to root_path
+  end
+
+  def edit
   end
 
   private
