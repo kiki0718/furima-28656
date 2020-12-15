@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_user!, only: [:destroy, :edit]
-  before_action :item_get, only: [:show, :destroy, :edit]
+  before_action :authenticate_user!, only: [:destroy, :edit, :update]
+  before_action :item_get, only: [:show, :destroy, :edit, :update]
 
   def new
     @item = Item.new
@@ -31,6 +31,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    @item.update(item_params)
+    redirect_to item_path
   end
 
   private
