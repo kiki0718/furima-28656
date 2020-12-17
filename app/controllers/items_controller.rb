@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_user!, only: [:destroy]
-  before_action :item_get, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:destroy, :edit, :update]
+  before_action :item_get, only: [:show, :destroy, :edit, :update]
 
   def new
     @item = Item.new
@@ -27,7 +27,19 @@ class ItemsController < ApplicationController
     if current_user.id == @item.user.id
       @item.destroy
     end
-      redirect_to root_path
+    redirect_to root_path
+  end
+
+  def edit
+    return redirect_to root_path if current_user.id != @item.user.id
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
   end
 
   private
