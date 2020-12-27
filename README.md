@@ -81,4 +81,4 @@ Things you may want to cover:
 | phone_number      | string     | null: false                    |
 
 ## Association
-- belongs_to :purchse_record
+- belongs_to :order
