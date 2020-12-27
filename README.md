@@ -72,7 +72,7 @@ Things you may want to cover:
 ## adresses テーブル
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| order_id          | references | null: false, foreign_key: true |
+| order             | references | null: false, foreign_key: true |
 | postal_code       | string     | null: false                    |
 | prefecture_id     | integer    | null: false                    |
 | municipatities    | string     | null: false                    |
