@@ -58,7 +58,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :purchse_record
 
-## purchase_records テーブル
+## order テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
@@ -72,7 +72,7 @@ Things you may want to cover:
 ## adresses テーブル
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| purchse_record_id | references | null: false, foreign_key: true |
+| order_id          | references | null: false, foreign_key: true |
 | postal_code       | string     | null: false                    |
 | prefecture_id     | integer    | null: false                    |
 | municipatities    | string     | null: false                    |
