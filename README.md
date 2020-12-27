@@ -56,7 +56,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one :purchse_record
+- has_one :order
 
 ## order テーブル
 | Column           | Type       | Options                        |
