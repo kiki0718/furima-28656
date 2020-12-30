@@ -4,9 +4,11 @@ class OrdersController < ApplicationController
   def index
     @purchase = Purchase.new
     @item = Item.find(params[:item_id])
+    return redirect_to root_path if current_user.id == @item.user.id
   end
 
   def create
+    
     @item = Item.find(params[:item_id])
     @purchase = Purchase.new(order_params)
       if @purchase.valid?
