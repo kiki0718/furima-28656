@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @orders = Order.select("item_id")
+    @orders = Order.select('item_id')
   end
 
   def index
@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :price, :category_id, :status_id, :delivery_fee_id, :prefecture_id, :ship_day_id, :description, :image).merge(user_id: current_user.id)
   end
