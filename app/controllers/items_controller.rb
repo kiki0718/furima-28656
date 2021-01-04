@@ -8,10 +8,12 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @orders = Order.select("item_id")
   end
 
   def index
     @items = Item.all.order('created_at DESC')
+    @orders = Order.all
   end
 
   def create
