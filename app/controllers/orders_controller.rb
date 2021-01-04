@@ -3,8 +3,14 @@ class OrdersController < ApplicationController
 
   def index
     @purchase = Purchase.new
+    @orders = Order.select("item_id")
     @item = Item.find(params[:item_id])
     return redirect_to root_path if current_user.id == @item.user.id
+    @orders.each do |order|
+      if @item.id == order.item_id
+        return redirect_to root_path
+      end
+    end
   end
 
   def create

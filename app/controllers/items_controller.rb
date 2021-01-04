@@ -4,7 +4,11 @@ class ItemsController < ApplicationController
   before_action :item_get, only: [:show, :destroy, :edit, :update]
 
   def new
-    @item = Item.new
+    if user_signed_in?
+      @item = Item.new
+    else
+      redirect_to root_path
+    end
   end
   
   def show

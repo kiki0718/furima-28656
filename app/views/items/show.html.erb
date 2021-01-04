@@ -32,8 +32,14 @@
     <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
     <% end %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <% if user_signed_in? && current_user.id != @item.user.id %>
-    <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
+    <% @flag = 0 %>
+    <% @orders.each do |order| %>
+      <% if @item.id != order.item_id %>
+        <%= @flag = 1 %>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? && current_user.id != @item.user.id && @flag == 1 %>
+        <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
     <% end %>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
 
