@@ -56,9 +56,9 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one :purchse_record
+- has_one :order
 
-## purchase_records テーブル
+## order テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
@@ -72,7 +72,7 @@ Things you may want to cover:
 ## adresses テーブル
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| purchse_record_id | references | null: false, foreign_key: true |
+| order             | references | null: false, foreign_key: true |
 | postal_code       | string     | null: false                    |
 | prefecture_id     | integer    | null: false                    |
 | municipatities    | string     | null: false                    |
@@ -81,4 +81,4 @@ Things you may want to cover:
 | phone_number      | string     | null: false                    |
 
 ## Association
-- belongs_to :purchse_record
+- belongs_to :order
