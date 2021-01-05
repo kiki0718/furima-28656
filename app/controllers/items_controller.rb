@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   def show
     @sold = false
     @orders = Order.select('item_id')
-    #@item = Item.find(params[:item_id])
     @orders.each do |order|
       if @item.id == order.item_id
         @sold = true
