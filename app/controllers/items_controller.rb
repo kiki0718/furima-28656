@@ -14,16 +14,10 @@ class ItemsController < ApplicationController
   def show
     @sold = false
     @orders = Order.select('item_id')
-    @orders.each do |order|
-      if @item.id == order.item_id
-        @sold = true
-      end
-    end
   end
 
   def index
     @items = Item.all.order('created_at DESC')
-    #@orders = Order.all
   end
 
   def create
