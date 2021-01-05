@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    return redirect_to root_path unless user_signed_in?
     @purchase = Purchase.new(order_params)
       if @purchase.valid?
         pay_item
