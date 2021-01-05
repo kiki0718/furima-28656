@@ -62,14 +62,14 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase.errors.full_messages).to include("Phone number is invalid")
       end
       it 'user_idが空だと保存できないこと' do
-        @purchase.phone_number = nil
+        @purchase.user_id = nil
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
+        expect(@purchase.errors.full_messages).to include("User can't be blank")
       end
       it 'item_idが空だと保存できないこと' do
-        @purchase.phone_number = nil
+        @purchase.item_id = nil
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
+        expect(@purchase.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
