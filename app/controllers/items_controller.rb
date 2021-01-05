@@ -1,14 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_user!, only: [:destroy, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
   before_action :item_get, only: [:show, :destroy, :edit, :update]
 
   def new
-    if user_signed_in?
-      @item = Item.new
-    else
-      redirect_to root_path
-    end
+    @item = Item.new
   end
   
   def show
